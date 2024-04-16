@@ -1,39 +1,16 @@
 import pytest
-from endpoints.create_publication import CreatePublication
-from endpoints.delete_publication import DeletePublication
-from endpoints.get_publication import GetPublication
-from endpoints.put_publication import PutPublication
-from endpoints.patch_publication import PatchPublication
+from endpoints.create_object import CreateObject
+from endpoints.delete_object import DeleteObject
 
 
 @pytest.fixture()
-def post_id(create_publication):
-    create_publication.create_new_publication()
-    post_id = create_publication.response_json['id']
+def post_id(create_object):
+    create_object.create_new_publication()
+    post_id = create_object.response_json['id']
     yield post_id
-    DeletePublication().delete(post_id)
+    DeleteObject().delete(post_id)
 
 
 @pytest.fixture()
-def create_publication():
-    return CreatePublication()
-
-
-@pytest.fixture()
-def get_publication():
-    return GetPublication()
-
-
-@pytest.fixture()
-def delete_publication():
-    return DeletePublication()
-
-
-@pytest.fixture()
-def put_publication():
-    return PutPublication()
-
-
-@pytest.fixture()
-def patch_publication():
-    return PatchPublication()
+def create_object():
+    return CreateObject()

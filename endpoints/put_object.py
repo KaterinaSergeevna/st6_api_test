@@ -16,7 +16,7 @@ PUT_PAYLOAD = {
 }
 
 
-class PutPublication(BaseEndpoint):
+class PutObject(BaseEndpoint):
 
     @allure.step('Send put request')
     def send_put_request(self, post_id, put_payload=None, headers=None):

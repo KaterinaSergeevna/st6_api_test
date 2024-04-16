@@ -21,7 +21,7 @@ PAYLOAD = {
 }
 
 
-class CreatePublication(BaseEndpoint):
+class CreateObject(BaseEndpoint):
 
     @allure.step('Send post request')
     def create_new_publication(self, payload=None, headers=None):

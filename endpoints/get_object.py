@@ -1,6 +1,6 @@
 import requests
 import allure
-from endpoints.json_schemas import Publications
+from endpoints.json_schemas import Object
 from endpoints.base_endpoint import BaseEndpoint
 
 import logging
@@ -9,7 +9,7 @@ logging.getLogger(__name__)
 logging.basicConfig(level=logging.info('msg'))
 
 
-class GetPublication(BaseEndpoint):
+class GetObject(BaseEndpoint):
     response_date = None
 
     @allure.step('send get request')
@@ -20,7 +20,7 @@ class GetPublication(BaseEndpoint):
         self.response_json = self.response.json()
         logging.info(f'status code is {self.response_json}')
         if self.status_code != 404:
-            self.response_date = Publications(**self.response_json)
+            self.response_date = Object(**self.response_json)
 
     @allure.step('Check id')
     def check_that_id_is(self, post_id):

@@ -8,7 +8,7 @@ class DataModel(BaseModel):
     Hard_disk_size: str = Field(alias='Hard disk size')
 
 
-class Publications(BaseModel):
+class Object(BaseModel):
     name: str
     data: DataModel
 

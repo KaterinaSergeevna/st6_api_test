@@ -5,7 +5,7 @@ from tests.base_test import BaseTest
 class TestApi(BaseTest):
 
     # @pytest.mark.parametrize('title', ['MY_Apple', '4'])
-    def test_create_publication(self):
+    def test_create_object (self):
         data = {
             "name": 'MY_Apple',
             "data": {
@@ -19,8 +19,8 @@ class TestApi(BaseTest):
         self.create_ends.check_status_code_is_200()
         self.create_ends.check_title_is_(data['name'])
 
-    @allure.feature('Publication')
-    @allure.story('Get publication')
+    @allure.feature('Objects')
+    @allure.story('Get object')
     def test_get_by_id(self, post_id):
         self.get_ends.get_by_id(post_id)
         self.get_ends.check_status_code_is_200()

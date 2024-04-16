@@ -13,10 +13,10 @@ PATCH_PAYLOAD = {
 }
 
 
-class PatchPublication(BaseEndpoint):
+class PatchObject(BaseEndpoint):
 
-    @allure.feature('Publication')
-    @allure.story('Updating publication')
+    @allure.feature('Objects')
+    @allure.story('Updating object')
     @allure.step('Send patch payload')
     def send_patch_request(self, post_id, patch_payload=None, headers=None):
         headers = headers if headers else HEADERS
